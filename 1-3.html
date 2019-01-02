@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="echarts.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <style>
+    #main {
+      width: 820px;
+      height: 154px;
+      border: 1px red solid;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="main"></div>
+  <script>
+    //基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    //指定图表的配置项和数据
+    var option = {
+      grid: {
+        height: 84,
+        width: 760,
+        bottom: 10,
+        top: 35,
+        right: 1,
+        left: 51
+      },
+      color: '#99b9ea',
+      legend: {
+        right: 10,
+        width: 500,
+        itemWidth: 40,
+        textStyle: {
+          color: '#6e7b8b'
+        },
+        data: ['清水池水位', '清水池水位'],
+        icon: "rect", //  这个字段控制形状  类型包括 circle，rect ，roundRect，triangle，diamond，pin，arrow，none
+
+        itemWidth: 14, // 设置宽度
+
+        itemHeight: 14, // 设置高度
+
+        itemGap: 40 // 设置间距
+      },
+      tooltip: {
+        trigger: 'axis',
+
+      },
+      xAxis: {
+        /* data: dataAxis, */
+        data: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00',
+          '19:00',
+          '20:00',
+          '21:00', '22:00', '23:00', '00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00',
+          '08:00'
+        ],
+        axisLabel: {
+          inside: false,
+          textStyle: {
+            color: '#fff',
+
+          }
+        },
+        axisTick: {
+          inside: true,
+          show: false,
+          length: 68,
+          lineStyle: {
+            color: "#84a5d6"
+          }
+        },
+        axisLine: {
+          show: false
+        },
+        z: 10
+      },
+      yAxis: {
+        splitLine: {
+          show: true,
+          lineStyle: {
+            color: '#dfdfdf',
+            width: 1,
+            type: 'dashed'
+          }
+        },
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          textStyle: {
+            color: '#999'
+          }
+        }
+      },
+      series: [{
+          /* name: '清水池水位', */
+          type: 'line',
+          color: "#c9ced5", //折线图颜色,搭配markArea为面积图
+          lineStyle: { //折线的颜色
+            color: "#c9ced5"
+          },
+          smooth: false, //是否平滑处理值0-1,true相当于0.5
+          data: [67, 30, 70, 40, 50, 25, 30, 25, 34, 45, 51, 43, 38,
+            null, null, null, null, null, null, null, null, null, null, null, null
+          ],
+          itemStyle: {
+            normal: {
+              color: "#c9ced5"
+            },
+          },
+          areaStyle: {
+            normal: {
+              color: "#c9ced5"
+            }
+          },
+
+        },
+        {
+          name: '清水池水位',
+          type: 'line',
+          color: "#99b9ea", //折线图颜色,搭配markArea为面积图
+          lineStyle: { //折线的颜色
+            color: "#99b9ea"
+          },
+          smooth: false, //是否平滑处理值0-1,true相当于0.5
+          data: [null, null, null, null, null, null, null, null, null, null, null, null, 38,
+            42, 34, 48, 52, 67, 81, 50, 56, 52, 51, 49, 67
+          ],
+          itemStyle: {
+            normal: {
+              color: "#99b9ea"
+            },
+          },
+          areaStyle: {
+            normal: {
+              color: "#99b9ea"
+            }
+          },
+
+        },
+
+      ]
+    };
+    //使用刚指定的配置项和数据显示图表
+    myChart.setOption(option);
+
+  </script>
+</body>
+
+</html>
